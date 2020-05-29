@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>Aframe 2 LA</title>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/aframevr/aframe/2baa063/dist/aframe-master.min.js"></script>
+    <meta charset="UTF-8">
+
+    <script>
+        AFRAME.registerComponent('set-sky', {
+            schema: { default: '' },
+            init() {
+                const sky = document.querySelector('a-sky');
+                this.el.addEventListener('click', () => {
+                    sky.setAttribute('src', this.data);
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <a-scene>
+
+        <a-camera position="0 2 0">
+            <a-cursor color="#5DADE2" fuse="true" timeout="10"></a-cursor>
+        </a-camera>
+
+        <a-plane width="16" height="9" position="0 8 -20" src="imagen2.jpg" set-sky="imagen2.jpg"></a-plane>
+        <a-plane width="16" height="9" position="25 8 -20" src="imagen4.jpg" set-sky="imagen4.jpg"></a-plane>
+        <a-plane width="16" height="9" position="-25 8 -20" src="imagen9.jpg" set-sky="imagen9.jpg"></a-plane>
+        <a-sky src="imagen2.jpg"></a-sky>
+        
+    </a-scene>
+</body>
+
+</html>
